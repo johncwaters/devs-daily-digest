@@ -50,8 +50,8 @@ allArticles.flat().forEach((article) => {
         Object.entries(articlesBySubject).map(
           ([subject, articles]) =>
             articles.length > 0 && (
-              <section class="">
-                <h2 class="text-3xl font-bold mb-4 text-center">{subject}</h2>
+              <section class="text-black">
+                <h2 class="text-3xl font-bold mb-4 text-center ">{subject}</h2>
                 {articles.map((article) => (
                   <Article
                     title={article.title}
