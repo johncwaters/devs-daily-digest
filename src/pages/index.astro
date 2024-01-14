@@ -11,6 +11,9 @@ const rssFeeds = [
   "https://www.freecodecamp.org/news/rss/",
   "https://www.smashingmagazine.com/feed/",
   "https://cult.honeypot.io/rss.xml",
+  "https://design.org/feed/",
+  "https://uxdesign.cc/feed",
+  "https://www.akendi.com/blog/feed/",
   // "https://uxwritinghub.com/blog/feed/",
 ];
 
@@ -19,6 +22,7 @@ const allArticles = await Promise.all(rssFeeds.map(fetchRss));
 const articlesBySubject: Record<string, FetchedArticle[]> = {
   Development: [],
   UX: [],
+  UI: [],
   Design: [],
   Productivity: [],
   Mobile: [],

@@ -53,19 +53,6 @@ export async function fetchRss(url: string): Promise<FetchedArticle[]> {
 			).toLocaleDateString();
 		}
 
-		// Cap the length of article body to 200 characters
-		// Only cap the length to the end of a word
-		const maxBodyLength = 180;
-		for (const article of filteredArticles) {
-			if (article.content.length > maxBodyLength) {
-				article.content = article.content.substring(
-					0,
-					article.content.lastIndexOf(" ", maxBodyLength),
-				);
-				article.content += "...";
-			}
-		}
-
 		// Apply a subject to each article from Development, UX, Design, Productivity based on keywords found in the title and body
 		// Otherwise, put subject as 'Other'
 		for (const article of filteredArticles) {
@@ -94,6 +81,19 @@ export async function fetchRss(url: string): Promise<FetchedArticle[]> {
 			article.author = article.author.replace(/\S+@\S+\.\S+/g, "");
 			// Remove any parentheses from article author like (test) but leave the words inside
 			article.author = article.author.replace(/[()]/g, "");
+		}
+
+		// Cap the length of article body to 200 characters
+		// Only cap the length to the end of a word
+		const maxBodyLength = 180;
+		for (const article of filteredArticles) {
+			if (article.content.length > maxBodyLength) {
+				article.content = article.content.substring(
+					0,
+					article.content.lastIndexOf(" ", maxBodyLength),
+				);
+				article.content += "...";
+			}
 		}
 
 		return filteredArticles;
