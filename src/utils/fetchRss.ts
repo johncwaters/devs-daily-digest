@@ -39,7 +39,7 @@ export async function fetchRss(url: string): Promise<FetchedArticle[]> {
 		);
 
 		// Only return articles from the past few days
-		const daysAgo = 2;
+		const daysAgo = 4;
 		const now = new Date();
 		const cutoff = new Date(now.setDate(now.getDate() - daysAgo));
 		const filteredArticles = articles.filter(
