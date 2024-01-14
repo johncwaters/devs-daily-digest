@@ -1,15 +1,17 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Article from "../components/Article.astro";
 import { fetchRss, type FetchedArticle } from "../utils/fetchRss";
+
 // Fetch RSS Feeds
 const rssFeeds = [
   "https://garden.bradwoods.io/rss.xml",
   "https://www.freecodecamp.org/news/rss/",
   "https://www.smashingmagazine.com/feed/",
   "https://cult.honeypot.io/rss.xml",
-  "https://uxwritinghub.com/blog/feed/",
+  // "https://uxwritinghub.com/blog/feed/",
 ];
 
 const allArticles = await Promise.all(rssFeeds.map(fetchRss));
@@ -36,9 +38,10 @@ allArticles.flat().forEach((article) => {
 ---
 
 <Layout title="Dev's Daily Digest">
-  <div class="bg-background min-h-screen h-full">
+  <div class="min-h-screen h-full">
     <Header />
     <!-- Main Content -->
+
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
       <!-- Contect Section by Type -->
       {

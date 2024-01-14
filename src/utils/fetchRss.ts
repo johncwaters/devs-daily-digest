@@ -11,10 +11,12 @@ export interface FetchedArticle {
 	subject: string;
 }
 
-const parser = new Parser();
-
 export async function fetchRss(url: string): Promise<FetchedArticle[]> {
 	try {
+		const parser = new Parser({
+			timeout: 1000,
+		});
+
 		const feed = await parser.parseURL(url);
 
 		// get rid of https and anything after .com or .org
@@ -96,7 +98,7 @@ export async function fetchRss(url: string): Promise<FetchedArticle[]> {
 
 		return filteredArticles;
 	} catch (error) {
-		console.error("Error fetching RSS feed:", error);
+		console.error("Error fetching RSS feed for:", `${url} ${error}`);
 		return [];
 	}
 }
