@@ -12,13 +12,13 @@ const { title, href } = Astro.props;
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="w-full py-2 min-w-0 block group"
+  class="w-full py-2 min-w-0 block group mx-1"
   type="button"
 >
   <div class="relative">
     <!-- Gradient Lines and Image - Left Side -->
     <div
-      class="absolute left-[-2rem] top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center"
+      class="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center"
     >
       <div class="w-[1px] h-6 bg-gradient-to-t from-[#141414] to-transparent">
       </div>
@@ -29,7 +29,7 @@ const { title, href } = Astro.props;
     <button class="text-sm w-full text-center py-2">{title}</button>
     <!-- Gradient Lines and Image - Right Side -->
     <div
-      class="absolute right-[-2rem] top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center"
+      class="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center"
     >
       <div class="w-[1px] h-6 bg-gradient-to-t from-[#141414] to-transparent">
       </div>
